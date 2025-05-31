@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>СКИДКА -50% НАПИСАТЬ В WHATSAPP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 20px;
+      color: #000;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #e74c3c;
+      margin-bottom: 10px;
+    }
+
+    .timer {
+      font-size: 24px;
+      color: #e74c3c;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .big-button {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 20px 30px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .instruction {
+      margin-top: 40px;
+      font-size: 16px;
+      color: #444;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔥 СКИДКА -50% 🔥</h1>
+  <div class="timer" id="timer">12:00:00</div>
+
+  <button class="big-button" onclick="openWhatsApp()">НАПИСАТЬ В WHATSAPP</button>
+
+  <div class="instruction">
+    📱 Если WhatsApp не открылся автоматически, нажмите кнопку выше и выберите браузер для перехода.
+  </div>
+
+  <script>
+    const whatsappLink = "https://wa.me/77075739875";
+
+    function openWhatsApp() {
+      window.location.href = whatsappLink;
+    }
+
+    function startTimer(duration, display) {
+      let timer = duration, hours, minutes, seconds;
+      setInterval(() => {
+        hours = parseInt(timer / 3600, 10);
+        minutes = parseInt((timer % 3600) / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = hours + ":" + minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          timer = duration;
+        }
+      }, 1000);
+    }
+
+    window.onload = () => {
+      const twelveHours = 12 * 60 * 60;
+      const display = document.getElementById('timer');
+      startTimer(twelveHours, display);
+    };
+  </script>
+
+</body>
+</html>
